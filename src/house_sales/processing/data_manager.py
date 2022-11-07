@@ -17,6 +17,7 @@ def load_dataset(*, file_name: str) -> pd.DataFrame:
     transformed = dataframe.rename(columns=config.model_config.variables_to_rename)
     return transformed
 
+
 def save_pipeline(*, pipeline_to_persist: Pipeline) -> None:
     """Persist the pipeline.
     Saves the versioned model, and overwrites any previous
