@@ -1,0 +1,14 @@
+{
+  "_output_dir": "C:\\Users\\paulr\\Documents\\Formations\\deploying-machine-learning-models",
+  "_template": "gh:cjolowicz/cookiecutter-hypermodern-python",
+  "author": "Paul Rousset",
+  "copyright_year": "2022",
+  "development_status": "Development Status :: 5 - Production/Stable",
+  "email": "paulrousset@hotmail.fr",
+  "friendly_name": "House Sales",
+  "github_user": "paulrousset",
+  "license": "MIT",
+  "package_name": "house_sales",
+  "project_name": "house-sales",
+  "version": "0.0.0"
+}
