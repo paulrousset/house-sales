@@ -1,18 +1,19 @@
-from feature_engine.encoding import OrdinalEncoder, RareLabelEncoder
-from feature_engine.imputation import (
-    AddMissingIndicator,
-    CategoricalImputer,
-    MeanMedianImputer,
-)
+from feature_engine.encoding import OrdinalEncoder
+from feature_engine.encoding import RareLabelEncoder
+from feature_engine.imputation import AddMissingIndicator
+from feature_engine.imputation import CategoricalImputer
+from feature_engine.imputation import MeanMedianImputer
 from feature_engine.selection import DropFeatures
 from feature_engine.transformation import LogTransformer
 from feature_engine.wrappers import SklearnTransformerWrapper
 from sklearn.linear_model import Lasso
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import Binarizer, MinMaxScaler
+from sklearn.preprocessing import Binarizer
+from sklearn.preprocessing import MinMaxScaler
 
-from src.house_sales.config.core import config
-from src.house_sales.processing import features as pp
+from house_sales.config.core import config
+from house_sales.processing import features as pp
+
 
 price_pipe = Pipeline(
     [

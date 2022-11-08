@@ -1,14 +1,22 @@
 from pathlib import Path
-from typing import Dict, List, Sequence
+from typing import Dict
+from typing import List
+from typing import Sequence
 
 from pydantic import BaseModel
-from strictyaml import YAML, load
+from strictyaml import YAML
+from strictyaml import load
+import os
 
-import src.house_sales
 
-# Project Directories
-PACKAGE_ROOT = Path(src.house_sales.__file__).resolve().parent
-ROOT = PACKAGE_ROOT.parent
+# # Project Directories
+# PACKAGE_ROOT = Path(__file__).resolve().parent
+path_str = os.path.dirname(os.path.realpath(__file__))
+if 'nox' in path_str:
+    path_str = path_str.split(".nox")[0]+"src/house_sales/config"
+
+PACKAGE_ROOT = Path(path_str).resolve().parent
+
 CONFIG_FILE_PATH = PACKAGE_ROOT / "config.yml"
 DATASET_DIR = PACKAGE_ROOT / "datasets"
 TRAINED_MODEL_DIR = PACKAGE_ROOT / "trained_models"
@@ -76,7 +84,7 @@ def fetch_config_from_yaml(cfg_path: Path = None) -> YAML:
         cfg_path = find_config_file()
 
     if cfg_path:
-        with open(cfg_path, "r") as conf_file:
+        with open(cfg_path) as conf_file:
             parsed_config = load(conf_file.read())
             return parsed_config
     raise OSError(f"Did not find config file at path: {cfg_path}")

@@ -38,8 +38,8 @@ features:
   - BsmtFinType1
   - HeatingQC
   - CentralAir
-  - FirstFlrSF  # renamed
-  - SecondFlrSF  # renamed
+  - FirstFlrSF # renamed
+  - SecondFlrSF # renamed
   - GrLivArea
   - BsmtFullBath
   - HalfBath
@@ -83,7 +83,6 @@ temporal_vars:
   - YearRemodAdd
 
 ref_var: YrSold
-
 
 # variables to log transform
 numericals_log_vars:
@@ -142,7 +141,6 @@ exposure_mappings:
   Av: 3
   Gd: 4
 
-
 finish_mappings:
   Missing: 0
   NA: 0
@@ -152,7 +150,6 @@ finish_mappings:
   BLQ: 4
   ALQ: 5
   GLQ: 6
-
 
 garage_mappings:
   Missing: 0

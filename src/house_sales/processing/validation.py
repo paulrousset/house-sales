@@ -1,10 +1,13 @@
-from typing import List, Optional, Tuple
+from typing import List
+from typing import Optional
+from typing import Tuple
 
 import numpy as np
 import pandas as pd
-from pydantic import BaseModel, ValidationError
+from pydantic import BaseModel
+from pydantic import ValidationError
 
-from src.house_sales.config.core import config
+from house_sales.config.core import config
 
 
 def drop_na_inputs(*, input_data: pd.DataFrame) -> pd.DataFrame:

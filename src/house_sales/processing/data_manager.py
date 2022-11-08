@@ -5,8 +5,10 @@ import joblib
 import pandas as pd
 from sklearn.pipeline import Pipeline
 
-from src.house_sales import __version__ as _version
-from src.house_sales.config.core import DATASET_DIR, TRAINED_MODEL_DIR, config
+from house_sales import __version__ as _version
+from house_sales.config.core import DATASET_DIR
+from house_sales.config.core import TRAINED_MODEL_DIR
+from house_sales.config.core import config
 
 
 def load_dataset(*, file_name: str) -> pd.DataFrame:

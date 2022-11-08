@@ -1,9 +1,11 @@
 """House Sales."""
 
+from importlib import metadata
 import logging
-import importlib
 
-from src.house_sales.config.core import PACKAGE_ROOT, config
+from house_sales.config.core import PACKAGE_ROOT
+from house_sales.config.core import config
+
 
 # It is strongly advised that you do not add any handlers other than
 # NullHandler to your library’s loggers. This is because the configuration
@@ -15,4 +17,4 @@ from src.house_sales.config.core import PACKAGE_ROOT, config
 # https://docs.python.org/3/howto/logging.html#configuring-logging-for-a-library
 logging.getLogger(config.app_config.package_name).addHandler(logging.NullHandler())
 
-__version__ = importlib.metadata.version('house_sales')
+__version__ = metadata.version("house_sales")

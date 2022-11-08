@@ -2,7 +2,7 @@ import math
 
 import numpy as np
 
-from src.house_sales.predict import make_prediction
+from house_sales.predict import make_prediction
 
 
 def test_make_prediction(sample_input_data):

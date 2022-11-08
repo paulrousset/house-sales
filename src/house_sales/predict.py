@@ -1,14 +1,14 @@
+import importlib.metadata
 import typing as t
 
 import numpy as np
 import pandas as pd
-import importlib.metadata
 
-from src.house_sales import __version__ as _version
+from house_sales import __version__ as _version
+from house_sales.config.core import config
+from house_sales.processing.data_manager import load_pipeline
+from house_sales.processing.validation import validate_inputs
 
-from src.house_sales.config.core import config
-from src.house_sales.processing.data_manager import load_pipeline
-from src.house_sales.processing.validation import validate_inputs
 
 pipeline_file_name = f"{config.app_config.pipeline_save_file}{_version}.pkl"
 _price_pipe = load_pipeline(file_name=pipeline_file_name)

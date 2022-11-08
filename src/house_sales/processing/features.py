@@ -1,7 +1,8 @@
 from typing import List
 
 import pandas as pd
-from sklearn.base import BaseEstimator, TransformerMixin
+from sklearn.base import BaseEstimator
+from sklearn.base import TransformerMixin
 
 
 class TemporalVariableTransformer(BaseEstimator, TransformerMixin):
@@ -42,7 +43,7 @@ class Mapper(BaseEstimator, TransformerMixin):
         self.mappings = mappings
 
     def fit(self, X: pd.DataFrame, y: pd.Series = None):
-        # we need the fit statement to accomodate the sklearn pipeline
+        # we need this step to fit the sklearn pipeline
         return self
 
     def transform(self, X: pd.DataFrame) -> pd.DataFrame:
@@ -50,5 +51,4 @@ class Mapper(BaseEstimator, TransformerMixin):
         for feature in self.variables:
             X[feature] = X[feature].map(self.mappings)
 
-        return
-
+        return X

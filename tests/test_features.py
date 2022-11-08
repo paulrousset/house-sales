@@ -1,5 +1,5 @@
-from src.house_sales.config.core import config
-from src.house_sales.processing.features import TemporalVariableTransformer
+from house_sales.config.core import config
+from house_sales.processing.features import TemporalVariableTransformer
 
 
 def test_temporal_variable_transformer(sample_input_data):
