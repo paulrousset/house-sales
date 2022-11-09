@@ -1,3 +1,4 @@
+"""Data Management functions."""
 import typing as t
 from pathlib import Path
 
@@ -12,6 +13,7 @@ from house_sales.config.core import config
 
 
 def load_dataset(*, file_name: str) -> pd.DataFrame:
+    """Loading training set."""
     dataframe = pd.read_csv(Path(f"{DATASET_DIR}/{file_name}"))
     dataframe["MSSubClass"] = dataframe["MSSubClass"].astype("O")
 
@@ -22,12 +24,12 @@ def load_dataset(*, file_name: str) -> pd.DataFrame:
 
 def save_pipeline(*, pipeline_to_persist: Pipeline) -> None:
     """Persist the pipeline.
+
     Saves the versioned model, and overwrites any previous
     saved models. This ensures that when the package is
     published, there is only one trained model that can be
     called, and we know exactly how it was built.
     """
-
     # Prepare versioned save file name
     save_file_name = f"{config.app_config.pipeline_save_file}{_version}.pkl"
     save_path = TRAINED_MODEL_DIR / save_file_name
@@ -38,15 +40,14 @@ def save_pipeline(*, pipeline_to_persist: Pipeline) -> None:
 
 def load_pipeline(*, file_name: str) -> Pipeline:
     """Load a persisted pipeline."""
-
     file_path = TRAINED_MODEL_DIR / file_name
     trained_model = joblib.load(filename=file_path)
     return trained_model
 
 
 def remove_old_pipelines(*, files_to_keep: t.List[str]) -> None:
-    """
-    Remove old model pipelines.
+    """Remove old model pipelines.
+
     This is to ensure there is a simple one-to-one
     mapping between the package version and the model
     version to be imported and used by other applications.

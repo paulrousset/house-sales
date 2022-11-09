@@ -1,3 +1,4 @@
+"""Feature engineering and model fitting pipeline."""
 from feature_engine.encoding import OrdinalEncoder
 from feature_engine.encoding import RareLabelEncoder
 from feature_engine.imputation import AddMissingIndicator

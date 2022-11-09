@@ -1,3 +1,5 @@
+"""Running Training Pipeline."""
+
 import numpy as np
 from config.core import config
 from pipeline import price_pipe
@@ -8,14 +10,13 @@ from sklearn.model_selection import train_test_split
 
 def run_training() -> None:
     """Train the model."""
-
     # read training data
     data = load_dataset(file_name=config.app_config.training_data_file)
 
     print(data.shape)
 
     # divide train and test
-    X_train, X_test, y_train, y_test = train_test_split(
+    x_train, x_test, y_train, y_test = train_test_split(
         data[config.model_config.features],  # predictors
         data[config.model_config.target],
         test_size=config.model_config.test_size,
@@ -26,7 +27,7 @@ def run_training() -> None:
     y_train = np.log(y_train)
 
     # fit model
-    price_pipe.fit(X_train, y_train)
+    price_pipe.fit(x_train, y_train)
     # persist trained model
     save_pipeline(pipeline_to_persist=price_pipe)
 

@@ -156,18 +156,25 @@ def mypy(session: Session) -> None:
     if not session.posargs:
         session.run("mypy", f"--python-executable={sys.executable}", "noxfile.py")
 
-import os
+
 @session(python=python_versions)
 def tests(session: Session) -> None:
     """Run the test suite."""
     session.install(".")
-    session.install("coverage[toml]", "pytest", "pygments")
-    session.install("pytest")
-    try:
-        session.run("coverage", "run", "--parallel", "-m", "pytest", *session.posargs)
-    finally:
-        if session.interactive:
-            session.notify("coverage", posargs=[])
+    session.install("pytest", "pygments")
+    session.run("pytest", *session.posargs)
+
+
+# @session(python=python_versions)
+# def tests(session: Session) -> None:
+#     """Run the test suite."""
+#     session.install(".")
+#     session.install("coverage[toml]", "pytest", "pygments")
+#     try:
+#         session.run("coverage", "run", "--parallel", "-m", "pytest", *session.posargs)
+#     finally:
+#         if session.interactive:
+#             session.notify("coverage", posargs=[])
 
 
 @session(python=python_versions[0])

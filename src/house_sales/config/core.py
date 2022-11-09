@@ -1,3 +1,5 @@
+"""Building Model Configuration."""
+import os
 from pathlib import Path
 from typing import Dict
 from typing import List
@@ -6,14 +8,13 @@ from typing import Sequence
 from pydantic import BaseModel
 from strictyaml import YAML
 from strictyaml import load
-import os
 
 
 # # Project Directories
 # PACKAGE_ROOT = Path(__file__).resolve().parent
 path_str = os.path.dirname(os.path.realpath(__file__))
-if 'nox' in path_str:
-    path_str = path_str.split(".nox")[0]+"src/house_sales/config"
+if "nox" in path_str:
+    path_str = path_str.split(".nox")[0] + "src/house_sales/config"
 
 PACKAGE_ROOT = Path(path_str).resolve().parent
 
@@ -23,9 +24,7 @@ TRAINED_MODEL_DIR = PACKAGE_ROOT / "trained_models"
 
 
 class AppConfig(BaseModel):
-    """
-    Application-level config.
-    """
+    """Application-level config."""
 
     package_name: str
     training_data_file: str
@@ -34,10 +33,7 @@ class AppConfig(BaseModel):
 
 
 class ModelConfig(BaseModel):
-    """
-    All configuration relevant to model
-    training and feature engineering.
-    """
+    """All configuration relevant to model training and feature engineering."""
 
     target: str
     variables_to_rename: Dict
@@ -79,7 +75,6 @@ def find_config_file() -> Path:
 
 def fetch_config_from_yaml(cfg_path: Path = None) -> YAML:
     """Parse YAML containing the package configuration."""
-
     if not cfg_path:
         cfg_path = find_config_file()
 

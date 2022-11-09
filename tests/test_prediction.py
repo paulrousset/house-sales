@@ -1,3 +1,4 @@
+"""Testing predictions."""
 import math
 
 import numpy as np
@@ -6,6 +7,7 @@ from house_sales.predict import make_prediction
 
 
 def test_make_prediction(sample_input_data):
+    """Test of single prediction."""
     # Given
     expected_first_prediction_value = 113422
     expected_no_predictions = 1449

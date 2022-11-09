@@ -1,9 +1,7 @@
 """House Sales."""
-
-from importlib import metadata
 import logging
+from importlib import metadata
 
-from house_sales.config.core import PACKAGE_ROOT
 from house_sales.config.core import config
 
 

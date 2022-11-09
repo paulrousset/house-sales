@@ -1,3 +1,4 @@
+"""Data Validation functions."""
 from typing import List
 from typing import Optional
 from typing import Tuple
@@ -29,7 +30,6 @@ def drop_na_inputs(*, input_data: pd.DataFrame) -> pd.DataFrame:
 
 def validate_inputs(*, input_data: pd.DataFrame) -> Tuple[pd.DataFrame, Optional[dict]]:
     """Check model inputs for unprocessable values."""
-
     # convert syntax error field names (beginning with numbers)
     input_data.rename(columns=config.model_config.variables_to_rename, inplace=True)
     input_data["MSSubClass"] = input_data["MSSubClass"].astype("O")
@@ -49,6 +49,8 @@ def validate_inputs(*, input_data: pd.DataFrame) -> Tuple[pd.DataFrame, Optional
 
 
 class HouseDataInputSchema(BaseModel):
+    """Input Data Scheme."""
+
     Alley: Optional[str]
     BedroomAbvGr: Optional[int]
     BldgType: Optional[str]
@@ -132,4 +134,6 @@ class HouseDataInputSchema(BaseModel):
 
 
 class MultipleHouseDataInputs(BaseModel):
+    """Multiple Inputs."""
+
     inputs: List[HouseDataInputSchema]

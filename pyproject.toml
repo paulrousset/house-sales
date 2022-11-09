@@ -26,6 +26,7 @@ joblib = "^1.2.0"
 nox = "^2022.8.7"
 pydantic = "^1.10.2"
 strictyaml = "^1.6.2"
+pre-commit = "^2.20.0"
 
 [tool.poetry.dev-dependencies]
 Pygments = ">=2.10.0"
