@@ -15,4 +15,6 @@ from house_sales.config.core import config
 # https://docs.python.org/3/howto/logging.html#configuring-logging-for-a-library
 logging.getLogger(config.app_config.package_name).addHandler(logging.NullHandler())
 
-__version__ = metadata.version("house_sales")
+__version__ = metadata.version(__package__)
+
+print(__version__)
