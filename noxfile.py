@@ -161,7 +161,7 @@ def mypy(session: Session) -> None:
 def tests(session: Session) -> None:
     """Run the test suite."""
     session.install(".")
-    session.install("pytest", "pygments")
+    session.install("pytest", "pygments", "typeguard")
     session.run("pytest", *session.posargs)
 
 
