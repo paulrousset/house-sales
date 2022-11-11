@@ -945,7 +945,7 @@ tests = ["black (>=22.3.0)", "flake8 (>=3.8.2)", "matplotlib (>=3.1.2)", "mypy (
 
 [[package]]
 name = "scipy"
-version = "1.8.1"
+version = "1.9.3"
 description = "Fundamental algorithms for scientific computing in Python"
 category = "main"
 optional = false
@@ -1292,7 +1292,7 @@ python-versions = ">= 3.7"
 name = "typeguard"
 version = "2.13.3"
 description = "Run-time type checker for Python"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.5.3"
 
@@ -1377,7 +1377,7 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "45c1b514a2feeedef56d352f1e8092372ca542713d098c00e6f05b33e2d84d4c"
+content-hash = "75ecd105d9667eac1401053977018abd22bf624150e706f13f05d8367e83d0fd"
 
 [metadata.files]
 alabaster = [
