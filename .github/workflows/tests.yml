@@ -76,8 +76,7 @@ jobs:
           python = "py{}.{}".format(*sys.version_info[:2])
           payload = sys.version.encode() + sys.executable.encode()
           digest = hashlib.sha256(payload).hexdigest()
-          res = "${{ runner.os }}-{}-{}-pre-commit".format(python, digest[:8])
-          echo "result=$(res)" >> $GITHUB_OUTPUT
+          echo "result=$("${{ runner.os }}-{}-{}-pre-commit".format(python, digest[:8]))" >> $GITHUB_OUTPUT
           print("result = {}".format(steps.pre-commit-cache.outputs.result))
 
       - name: Restore pre-commit cache
