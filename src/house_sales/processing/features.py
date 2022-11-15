@@ -1,5 +1,6 @@
 """Custom feature transformers."""
 from typing import Any
+from typing import Dict
 from typing import List
 
 import pandas as pd
@@ -18,7 +19,7 @@ class TemporalVariableTransformer(BaseEstimator, TransformerMixin):  # type: ign
         self.variables = variables
         self.reference_variable = reference_variable
 
-    def fit(self, x: pd.DataFrame, y: pd.Series = None) -> pd.DataFrame:
+    def fit(self, x: pd.DataFrame, y: pd.Series = None):  # type: ignore
         """Fit method."""
         # we need this step to fit the sklearn pipeline
         return self
@@ -37,7 +38,7 @@ class TemporalVariableTransformer(BaseEstimator, TransformerMixin):  # type: ign
 class Mapper(BaseEstimator, TransformerMixin):  # type: ignore
     """Categorical variable mapper."""
 
-    def __init__(self, variables: List[str], mappings: dict[Any, Any]):
+    def __init__(self, variables: List[str], mappings: Dict[Any, Any]):
         """Construct."""
         if not isinstance(variables, list):
             raise ValueError("variables should be a list")
