@@ -1,4 +1,6 @@
 """Test fixtures."""
+from typing import Any
+
 import pandas as pd
 import pytest
 from typeguard import typechecked
@@ -13,7 +15,7 @@ def pytest_configure() -> None:
     install_import_hook("house_sales")
 
 
-def pytest_runtest_call(item) -> None:
+def pytest_runtest_call(item: Any) -> None:
     """Pytest runtest call."""
     # Decorate every test function [e.g. test_foo()] with typeguard's
     # typechecked() decorator.

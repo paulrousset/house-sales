@@ -39,20 +39,10 @@ $ pip install house-sales
 
 Please see the [Command-line Reference] for details.
 
-## Contributing
-
-Contributions are very welcome.
-To learn more, see the [Contributor Guide].
-
 ## License
 
 Distributed under the terms of the [MIT license][license],
 _House Sales_ is free and open source software.
-
-## Issues
-
-If you encounter any problems,
-please [file an issue] along with a detailed description.
 
 ## Credits
 
@@ -67,5 +57,4 @@ This project was generated from [@cjolowicz]'s [Hypermodern Python Cookiecutter]
 <!-- github-only -->
 
 [license]: https://github.com/paulrousset/house-sales/blob/main/LICENSE
-[contributor guide]: https://github.com/paulrousset/house-sales/blob/main/CONTRIBUTING.md
 [command-line reference]: https://house-sales.readthedocs.io/en/latest/usage.html
