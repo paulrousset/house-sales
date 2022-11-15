@@ -28,7 +28,7 @@ def drop_na_inputs(*, input_data: pd.DataFrame) -> pd.DataFrame:
     return validated_data
 
 
-def validate_inputs(*, input_data: pd.DataFrame) -> Tuple[pd.DataFrame, Optional[dict]]:
+def validate_inputs(*, input_data: pd.DataFrame) -> Tuple[pd.DataFrame, Optional[str]]:
     """Check model inputs for unprocessable values."""
     # convert syntax error field names (beginning with numbers)
     input_data.rename(columns=config.model_config.variables_to_rename, inplace=True)

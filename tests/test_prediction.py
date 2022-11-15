@@ -2,11 +2,12 @@
 import math
 
 import numpy as np
+import pandas as pd
 
 from house_sales.predict import make_prediction
 
 
-def test_make_prediction(sample_input_data):
+def test_make_prediction(sample_input_data: pd.DataFrame) -> None:
     """Test of single prediction."""
     # Given
     expected_first_prediction_value = 113422

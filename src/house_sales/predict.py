@@ -1,6 +1,7 @@
 """Predict."""
 
 import typing as t
+from typing import Any
 
 import numpy as np
 import pandas as pd
@@ -17,8 +18,8 @@ _price_pipe = load_pipeline(file_name=pipeline_file_name)
 
 def make_prediction(
     *,
-    input_data: t.Union[pd.DataFrame, dict],
-) -> dict:
+    input_data: t.Union[pd.DataFrame, dict[Any, Any]],
+) -> dict[Any, Any]:
     """Make a prediction using a saved model pipeline."""
     data = pd.DataFrame(input_data)
     validated_data, errors = validate_inputs(input_data=data)

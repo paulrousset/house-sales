@@ -1,4 +1,5 @@
 """Custom feature transformers."""
+from typing import Any
 from typing import List
 
 import pandas as pd
@@ -6,7 +7,7 @@ from sklearn.base import BaseEstimator
 from sklearn.base import TransformerMixin
 
 
-class TemporalVariableTransformer(BaseEstimator, TransformerMixin):
+class TemporalVariableTransformer(BaseEstimator, TransformerMixin):  # type: ignore
     """Temporal elapsed time transformer."""
 
     def __init__(self, variables: List[str], reference_variable: str):
@@ -17,7 +18,7 @@ class TemporalVariableTransformer(BaseEstimator, TransformerMixin):
         self.variables = variables
         self.reference_variable = reference_variable
 
-    def fit(self, x: pd.DataFrame, y: pd.Series = None):
+    def fit(self, x: pd.DataFrame, y: pd.Series = None) -> pd.DataFrame:
         """Fit method."""
         # we need this step to fit the sklearn pipeline
         return self
@@ -33,10 +34,10 @@ class TemporalVariableTransformer(BaseEstimator, TransformerMixin):
         return x
 
 
-class Mapper(BaseEstimator, TransformerMixin):
+class Mapper(BaseEstimator, TransformerMixin):  # type: ignore
     """Categorical variable mapper."""
 
-    def __init__(self, variables: List[str], mappings: dict):
+    def __init__(self, variables: List[str], mappings: dict[Any, Any]):
         """Construct."""
         if not isinstance(variables, list):
             raise ValueError("variables should be a list")
@@ -44,7 +45,7 @@ class Mapper(BaseEstimator, TransformerMixin):
         self.variables = variables
         self.mappings = mappings
 
-    def fit(self, x: pd.DataFrame, y: pd.Series = None):
+    def fit(self, x: pd.DataFrame, y: pd.Series = None) -> pd.DataFrame:
         """Fit method."""
         # we need this step to fit the sklearn pipeline
         return self

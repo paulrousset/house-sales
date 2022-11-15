@@ -1,9 +1,11 @@
 """Testing custom transformers."""
+import pandas as pd
+
 from house_sales.config.core import config
 from house_sales.processing.features import TemporalVariableTransformer
 
 
-def test_temporal_variable_transformer(sample_input_data):
+def test_temporal_variable_transformer(sample_input_data: pd.DataFrame) -> None:
     """Test the temporal variable transformer."""
     # Given
     transformer = TemporalVariableTransformer(

@@ -3,6 +3,7 @@ import os
 from pathlib import Path
 from typing import Dict
 from typing import List
+from typing import Optional
 from typing import Sequence
 
 from pydantic import BaseModel
@@ -36,7 +37,7 @@ class ModelConfig(BaseModel):
     """All configuration relevant to model training and feature engineering."""
 
     target: str
-    variables_to_rename: Dict
+    variables_to_rename: Dict[str, str]
     features: List[str]
     test_size: float
     random_state: int
@@ -73,7 +74,7 @@ def find_config_file() -> Path:
     raise Exception(f"Config not found at {CONFIG_FILE_PATH!r}")
 
 
-def fetch_config_from_yaml(cfg_path: Path = None) -> YAML:
+def fetch_config_from_yaml(cfg_path: Optional[Path] = None) -> YAML:
     """Parse YAML containing the package configuration."""
     if not cfg_path:
         cfg_path = find_config_file()
