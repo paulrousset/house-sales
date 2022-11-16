@@ -19,13 +19,11 @@
 [pre-commit]: https://github.com/pre-commit/pre-commit
 [black]: https://github.com/psf/black
 
-## Features
+## Description
 
-- TODO
-
-## Requirements
-
-- TODO
+- This package is an example of model deployment
+- The model aims to predict the sale price of homes based on different explanatory variables describing aspects of residential houses.
+- Thie training set is coming from the following Kaggle Challenge https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data
 
 ## Installation
 
