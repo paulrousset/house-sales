@@ -21,7 +21,7 @@
 
 ## Features
 
-- TO DO
+- TODO
 
 ## Requirements
 
