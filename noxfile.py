@@ -157,20 +157,20 @@ def mypy(session: Session) -> None:
         session.run("mypy", f"--python-executable={sys.executable}", "noxfile.py")
 
 
-@session(python=python_versions[0])
-def typeguard(session: Session) -> None:
-    """Runtime type checking using Typeguard."""
-    session.install(".")
-    session.install("pytest", "typeguard", "pygments")
-    session.run("pytest", f"--typeguard-packages={package}", *session.posargs)
-
-
 @session(python=python_versions)
 def tests(session: Session) -> None:
     """Run the test suite."""
     session.install(".")
     session.install("pytest", "pygments", "typeguard")
     session.run("pytest", *session.posargs)
+
+
+@session(python=python_versions[0])
+def typeguard(session: Session) -> None:
+    """Runtime type checking using Typeguard."""
+    session.install(".")
+    session.install("pytest", "typeguard", "pygments")
+    session.run("pytest", f"--typeguard-packages={package}", *session.posargs)
 
 
 @session(python=python_versions)
