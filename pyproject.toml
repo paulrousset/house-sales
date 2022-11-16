@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "house-sales"
-version = "0.0.2"
+version = "0.0.3"
 description = "House Sales"
 authors = ["Paul Rousset <paulrousset@hotmail.fr>"]
 license = "MIT"
